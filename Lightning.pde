@@ -1,31 +1,33 @@
 int startX = 150;
 int startY = 0;
-int endX = 150;
-int endY = 20;
+int endX = startX;
+int endY = startY;
+
 void setup()
 {
 	size(300,300);
     background(0);
-    strokeWeight(5);
-    noLoop();
+    //noLoop();
 }
 void draw()
 {
-	fill(255, 255, 0);
-	stroke(255, 255, 0);
-	line(startX, startY, endX, endY);
-	while(startY < 300)
-	{
-		line(startX, startY, endX, endY);
-		startX += (int)((Math.random()*20 - 10));
-		startY += (int)((Math.random()*20 - 10));
-		endX += (int)((Math.random()*20 - 10));
-		endY += (int)((Math.random()*20 - 10));
-		noLoop();
-	}
+	
 }
 void mousePressed()
 {
-	redraw();
+	lightning();
+	//redraw();
 }
-
+void lightning()
+{
+	while(startY < 300)
+	{
+		stroke(255, 255, 0);
+		strokeWeight(3);
+		endX = startX + (int)((Math.random() * 30 - 15));
+		endY = startY + (int)((Math.random() * 15));
+		line(startX, startY, endX, endY);
+		startX = endX;
+		startY = endY;
+	}
+}
