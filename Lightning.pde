@@ -5,12 +5,22 @@ void setup()
 }
 void draw()
 {
-
+	rain();
 }
 void mousePressed()
 {
 	background(0);
 	lightning();
+}
+void rain()
+{	
+	int[] x = {(int)(Math.random() * -50), (int)(Math.random() * -50), (int)(Math.random() * -50), (int)(Math.random() * -50)};
+	int y = -50;
+	for(int i = 0; i < x.length; i ++)
+	{
+		ellipse(x[i], y, 7, 7);
+		y += 10;
+	}
 }
 void lightning()
 {
