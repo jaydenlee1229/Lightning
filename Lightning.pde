@@ -5,6 +5,8 @@ void setup()
 }
 void draw()
 {
+	fill(0, 0, 0, 100);
+	//rect(-10, -10, 320, 320);
 	rain();
 }
 void mousePressed()
@@ -14,12 +16,19 @@ void mousePressed()
 }
 void rain()
 {	
-	int[] x = {(int)(Math.random() * -50), (int)(Math.random() * -50), (int)(Math.random() * -50), (int)(Math.random() * -50)};
+	int[] x = {(int)(Math.random() * 300), (int)(Math.random() * 300), (int)(Math.random() * 300), (int)(Math.random() * 300)};
 	int y = -50;
-	for(int i = 0; i < x.length; i ++)
+	
+	for(int i = 0; i < 4; i ++)
 	{
-		ellipse(x[i], y, 7, 7);
+		System.out.println("5");
+		fill(255);
+		ellipse(150, y, 7, 7);
 		y += 10;
+		if (y > 350)
+		{
+			y = -50;
+		}
 	}
 }
 void lightning()
