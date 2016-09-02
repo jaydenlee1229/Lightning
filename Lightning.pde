@@ -3,6 +3,7 @@ void setup()
 {
 	size(700,300);
     background(0);
+    frameRate(30);
 }
 void draw()
 {
@@ -19,14 +20,14 @@ void rain()
 	background(0);
 	strokeWeight(1);
 	stroke(0, 0 ,255, 100);
-	fill(0, 0, 255, 200);
+	fill(0, 0, 200, 200);
 	for(int i = 0; i < 4; i++)
 	{
-		ellipse(x[i], yRain + (int)(Math.random()* -300), 4, 4);
+		ellipse(x[i], yRain + (int)(Math.random()* -300), 6, 10);
 		yRain += 6;
-		if (yRain > 400)
+		if (yRain > 350)
 		{
-			yRain = -50;
+			yRain = (int)(Math.random() * -50);
 		}
 	}
 }
