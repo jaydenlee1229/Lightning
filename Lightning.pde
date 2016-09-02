@@ -1,12 +1,11 @@
+int yRain = -50;
 void setup()
 {
-	size(300,300);
+	size(700,300);
     background(0);
 }
 void draw()
 {
-	fill(0, 0, 0, 100);
-	//rect(-10, -10, 320, 320);
 	rain();
 }
 void mousePressed()
@@ -16,24 +15,24 @@ void mousePressed()
 }
 void rain()
 {	
-	int[] x = {(int)(Math.random() * 300), (int)(Math.random() * 300), (int)(Math.random() * 300), (int)(Math.random() * 300)};
-	int y = -50;
-	
-	for(int i = 0; i < 4; i ++)
+	int[] x = {(int)(Math.random() * 700), (int)(Math.random() * 700), (int)(Math.random() * 700), (int)(Math.random() * 700)};
+	background(0);
+	strokeWeight(1);
+	stroke(0, 0 ,255, 100);
+	fill(0, 0, 255, 200);
+	for(int i = 0; i < 4; i++)
 	{
-		System.out.println("5");
-		fill(255);
-		ellipse(150, y, 7, 7);
-		y += 10;
-		if (y > 350)
+		ellipse(x[i], yRain + (int)(Math.random()* -300), 4, 4);
+		yRain += 6;
+		if (yRain > 400)
 		{
-			y = -50;
+			yRain = -50;
 		}
 	}
 }
 void lightning()
 {
-	int startX = 150;
+	int startX = (int)(Math.random() * 500 + 100);
 	int startY = 0;
 	int endX = startX;
 	int endY = startY;
@@ -41,7 +40,7 @@ void lightning()
 	{
 		stroke(255, 255, 0);
 		strokeWeight(3);
-		endX = startX + (int)((Math.random() * 30 - 15));
+		endX = startX + (int)((Math.random() * 40 - 20));
 		endY = startY + (int)((Math.random() * 15));
 		line(startX, startY, endX, endY);
 		stroke(255);
